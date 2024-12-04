@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Web Component Demo</title>
+  <link href='/style.css' rel='stylesheet'>
+</head>
+<body>
+  <script type="importmap">
+    {
+      "imports": {
+        "lit": "https://ga.jspm.io/npm:lit@3.2.1/index.js"
+      },
+      "scopes": {
+        "https://ga.jspm.io/": {
+          "@lit/reactive-element": "https://ga.jspm.io/npm:@lit/reactive-element@2.0.4/development/reactive-element.js",
+          "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@4.1.1/development/lit-element.js",
+          "lit-html": "https://ga.jspm.io/npm:lit-html@3.2.1/development/lit-html.js",
+          "lit-html/is-server.js": "https://ga.jspm.io/npm:lit-html@3.2.1/development/is-server.js"
+        }
+      }
+    }
+  </script>
+  <toast-component></toast-component>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
