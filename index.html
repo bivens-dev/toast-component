@@ -22,8 +22,16 @@
       }
     }
   </script>
+  <button id="addToast">Add Message</button>
   <toast-component></toast-component>
 
   <script type="module" src="./main.js"></script>
+  <script type="module">
+    const toastComponent = document.querySelector('toast-component');
+    const button = document.querySelector('#addToast');
+    button.addEventListener('click', () => {
+      toastComponent.addToast('This is a toast message');
+    });
+  </script>
 </body>
 </html>

@@ -13,12 +13,17 @@ export class ToastComponent extends LitElement {
    */
   static styles = [componentStyles];
 
-  /**
-   * Renders the HTML to the screen
-   * @return {html} The HTML to be rendered.
-   */
-  render() {
-    return html`<p>Toast Component</p>`;
+  addToast(message) {
+    this.shadowRoot.appendChild(this.#createToast(message));
+  }
+
+  #createToast(message) {
+    const node = document.createElement('output');
+  
+    node.innerText = message;
+    node.setAttribute('role', 'status');
+
+    return node;
   }
 }
 
