@@ -10,14 +10,17 @@
   <script type="importmap">
     {
       "imports": {
-        "lit": "https://ga.jspm.io/npm:lit@3.2.1/index.js"
+        "@lit-labs/motion": "https://ga.jspm.io/npm:@lit-labs/motion@1.0.7/development/index.js",
+        "lit": "https://ga.jspm.io/npm:lit@3.2.1/index.js",
+        "lit/directives/repeat.js": "https://ga.jspm.io/npm:lit@3.2.1/directives/repeat.js"
       },
       "scopes": {
         "https://ga.jspm.io/": {
           "@lit/reactive-element": "https://ga.jspm.io/npm:@lit/reactive-element@2.0.4/development/reactive-element.js",
           "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@4.1.1/development/lit-element.js",
           "lit-html": "https://ga.jspm.io/npm:lit-html@3.2.1/development/lit-html.js",
-          "lit-html/is-server.js": "https://ga.jspm.io/npm:lit-html@3.2.1/development/is-server.js"
+          "lit-html/": "https://ga.jspm.io/npm:lit-html@3.2.1/development/",
+          "lit/": "https://ga.jspm.io/npm:lit@3.2.1/"
         }
       }
     }
@@ -30,7 +33,7 @@
     const toastComponent = document.querySelector('toast-component');
     const button = document.querySelector('#addToast');
     button.addEventListener('click', () => {
-      toastComponent.addToast('This is a toast message');
+      toastComponent.showToast('This is a toast message');
     });
   </script>
 </body>
