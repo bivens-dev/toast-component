@@ -44,6 +44,30 @@ export class ToastComponent extends LitElement {
   }
 
   /**
+   * Called when the element is first connected to the DOM.
+   * Adds an event listener to the window for the `show-toast` event.
+   * 
+   * @override
+   * @see {@link https://lit.dev/docs/components/lifecycle/}
+   */
+  connectedCallback() {
+    super.connectedCallback()
+    window.addEventListener('show-toast', (event) => this.#handleShowToastEvent(event));
+  }
+
+  /**
+   * Called when the element is disconnected from the DOM.
+   * Removes the event listener for the 'show-toast' event.
+   * 
+   * @override
+   * @see {@link https://lit.dev/docs/components/lifecycle/}
+   */
+  disconnectedCallback() {
+    super.connectedCallback()
+    window.removeEventListener('show-toast', (event) => this.#handleShowToastEvent(event));
+  }
+
+  /**
    * Renders the toast messages to the screen either with or without
    * animation depending on the user's browser preferences.
    * 
@@ -95,6 +119,16 @@ export class ToastComponent extends LitElement {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  /**
+   * Takes a CustomEvent and uses it to call the `showToast` method
+   * 
+   * @private
+   * @param {CustomEvent} event - The event containing the message to be displayed
+   */
+  #handleShowToastEvent(event) {
+    this.showToast(event.detail.message);
   }
 
   /**

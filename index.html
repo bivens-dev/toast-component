@@ -26,14 +26,34 @@
     }
   </script>
   <button id="addToast">Add Message</button>
+  <button id="eventToast">Add Event Message</button>
   <toast-component></toast-component>
 
   <script type="module" src="./main.js"></script>
   <script type="module">
     const toastComponent = document.querySelector('toast-component');
     const button = document.querySelector('#addToast');
+    const eventButton = document.querySelector('#eventToast');
+
     button.addEventListener('click', () => {
       toastComponent.showToast('This is a toast message');
+    });
+
+    eventButton.addEventListener('click', () => {
+      dispatchEvent(new CustomEvent('show-toast', {
+        detail: {
+          message: 'This is an event toast message'
+        },
+        bubbles: true,
+      }));
+    });
+
+    window.addEventListener('toast-added', (event) => {
+      console.log(event);
+    });
+
+    window.addEventListener('toast-removed', (event) => {
+      console.log(event);
     });
   </script>
 </body>
